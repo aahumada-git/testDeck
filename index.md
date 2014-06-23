@@ -10,74 +10,31 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
 
-## Proposed Model
+## Executive Summary
+
+This application help to realize the cars's relationship between miles per galon (MPG) and other variables in dataset. For this we have the folowing database:
 
 
-```
-## Loading required package: Hmisc
-## Loading required package: grid
-## Loading required package: lattice
-## Loading required package: survival
-## Loading required package: splines
-## Loading required package: Formula
-## 
-## Attaching package: 'Hmisc'
-## 
-## The following objects are masked from 'package:base':
-## 
-##     format.pval, round.POSIXt, trunc.POSIXt, units
-## 
-## 
-## Attaching package: 'xtable'
-## 
-## The following objects are masked from 'package:Hmisc':
-## 
-##     label, label<-
-```
+    Motor Trend Car Road Tests: The data was extracted from the 1974 Motor Trend US magazine, 
+    and comprises fuel consumption and 10 aspects of automobile design and performance for 32 
+    automobiles (1973-74 models). This aplication show scaterplot graphics and tendence line 
+    retulting of applying linear regression to a mtcars dataset.
 
-```
-## <!-- html table generated in R 3.1.0 by xtable 1.7-3 package -->
-## <!-- Mon Jun 23 11:14:42 2014 -->
-## <TABLE border=1>
-## <TR> <TH>  </TH> <TH> A </TH> <TH> B </TH>  </TR>
-##   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1,0012 </TD> <TD align="right"> 111 111,0000 </TD> </TR>
-##   <TR> <TD align="right"> 2 </TD> <TD align="right"> 33,1000 </TD> <TD align="right"> 3 333 333,0000 </TD> </TR>
-##   <TR> <TD align="right"> 3 </TD> <TD align="right"> 6,0000 </TD> <TD align="right"> 3 123,2330 </TD> </TR>
-##    </TABLE>
-```
+
+In this application version we only show linear regression with one regresors and used to identify the possible form of data in comparison to regression line.
+
+The next release will show the procedure to select variable in a multivariable linear regression.
 
 --- .class #id 
-
-## Residual Plot
-
-
-```
-## Error: objeto 'fit' no encontrado
-```
-
---- .class #id 
-
 
 ## User Guide
 
-You have to select a regresor  for MPG and application will show to you:
+In this release you have to select a regresor for MPG variable and the application will show to you:
 
-- Scatterplot in case of variable it continuous
+- Scatterplot in case of variable it continuous.
 - Boxplot in case of variable it discrete.
 
 Enjoy it!
-
---- .class #id 
-
-## Executive Summary
-
-This application try to answer specific question regarding the cars's relationship between miles per galon (MPG) and other variables in dataset. For this we have the folowing database:
-
-```
-Motor Trend Car Road Tests: The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models)
-This aplication show scaterplot graphics and tendence line retulting of applying linear regression to a mtcars dataset 
-
-```
 
 --- .class #id 
 
@@ -117,3 +74,32 @@ head(mtcars)
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
 ```
+
+--- .class #id 
+
+## Proposed Model
+
+When the application will finnished we show how to reach the following linear model:
+
+    mpg ~ factor(am) + factor(cyl) + wt + hp
+
+The next table shown their coefficients:
+
+
+```
+##              Estimate Std. Error t value  Pr(>|t|)
+## (Intercept)  33.70832    2.60489 12.9404 7.733e-13
+## factor(am)1   1.80921    1.39630  1.2957 2.065e-01
+## factor(cyl)6 -3.03134    1.40728 -2.1540 4.068e-02
+## factor(cyl)8 -2.16368    2.28425 -0.9472 3.523e-01
+## wt           -2.49683    0.88559 -2.8194 9.081e-03
+## hp           -0.03211    0.01369 -2.3450 2.693e-02
+```
+
+--- .class #id 
+
+## Residual Plot
+
+The following graphics, called, "Residual Plots" are used to evaluate the "quality of model", will be reviewed in the next release:
+
+![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3.png) 

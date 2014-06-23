@@ -43,51 +43,20 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Proposed Model</h2>
+    <h2>Executive Summary</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code>## Loading required package: Hmisc
-## Loading required package: grid
-## Loading required package: lattice
-## Loading required package: survival
-## Loading required package: splines
-## Loading required package: Formula
-## 
-## Attaching package: &#39;Hmisc&#39;
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     format.pval, round.POSIXt, trunc.POSIXt, units
-## 
-## 
-## Attaching package: &#39;xtable&#39;
-## 
-## The following objects are masked from &#39;package:Hmisc&#39;:
-## 
-##     label, label&lt;-
+    <p>This application help to realize the cars&#39;s relationship between miles per galon (MPG) and other variables in dataset. For this we have the folowing database:</p>
+
+<pre><code>Motor Trend Car Road Tests: The data was extracted from the 1974 Motor Trend US magazine, 
+and comprises fuel consumption and 10 aspects of automobile design and performance for 32 
+automobiles (1973-74 models). This aplication show scaterplot graphics and tendence line 
+retulting of applying linear regression to a mtcars dataset.
 </code></pre>
 
-<pre><code>## &lt;!-- html table generated in R 3.1.0 by xtable 1.7-3 package --&gt;
-## &lt;!-- Mon Jun 23 11:14:42 2014 --&gt;
-## &lt;TABLE border=1&gt;
-## &lt;TR&gt; &lt;TH&gt;  &lt;/TH&gt; &lt;TH&gt; A &lt;/TH&gt; &lt;TH&gt; B &lt;/TH&gt;  &lt;/TR&gt;
-##   &lt;TR&gt; &lt;TD align=&quot;right&quot;&gt; 1 &lt;/TD&gt; &lt;TD align=&quot;right&quot;&gt; 1,0012 &lt;/TD&gt; &lt;TD align=&quot;right&quot;&gt; 111 111,0000 &lt;/TD&gt; &lt;/TR&gt;
-##   &lt;TR&gt; &lt;TD align=&quot;right&quot;&gt; 2 &lt;/TD&gt; &lt;TD align=&quot;right&quot;&gt; 33,1000 &lt;/TD&gt; &lt;TD align=&quot;right&quot;&gt; 3 333 333,0000 &lt;/TD&gt; &lt;/TR&gt;
-##   &lt;TR&gt; &lt;TD align=&quot;right&quot;&gt; 3 &lt;/TD&gt; &lt;TD align=&quot;right&quot;&gt; 6,0000 &lt;/TD&gt; &lt;TD align=&quot;right&quot;&gt; 3 123,2330 &lt;/TD&gt; &lt;/TR&gt;
-##    &lt;/TABLE&gt;
-</code></pre>
+<p>In this application version we only show linear regression with one regresors and used to identify the possible form of data in comparison to regression line.</p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Residual Plot</h2>
-  </hgroup>
-  <article data-timings="">
-    <pre><code>## Error: objeto &#39;fit&#39; no encontrado
-</code></pre>
+<p>The next release will show the procedure to select variable in a multivariable linear regression.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -98,30 +67,14 @@
     <h2>User Guide</h2>
   </hgroup>
   <article data-timings="">
-    <p>You have to select a regresor  for MPG and application will show to you:</p>
+    <p>In this release you have to select a regresor for MPG variable and the application will show to you:</p>
 
 <ul>
-<li>Scatterplot in case of variable it continuous</li>
+<li>Scatterplot in case of variable it continuous.</li>
 <li>Boxplot in case of variable it discrete.</li>
 </ul>
 
 <p>Enjoy it!</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Executive Summary</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>This application try to answer specific question regarding the cars&#39;s relationship between miles per galon (MPG) and other variables in dataset. For this we have the folowing database:</p>
-
-<pre><code>Motor Trend Car Road Tests: The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models)
-This aplication show scaterplot graphics and tendence line retulting of applying linear regression to a mtcars dataset 
-
-</code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -211,43 +164,81 @@ This aplication show scaterplot graphics and tendence line retulting of applying
   <!-- Presenter Notes -->
 </slide>
 
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Proposed Model</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>When the application will finnished we show how to reach the following linear model:</p>
+
+<pre><code>mpg ~ factor(am) + factor(cyl) + wt + hp
+</code></pre>
+
+<p>The next table shown their coefficients:</p>
+
+<pre><code>##              Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)  33.70832    2.60489 12.9404 7.733e-13
+## factor(am)1   1.80921    1.39630  1.2957 2.065e-01
+## factor(cyl)6 -3.03134    1.40728 -2.1540 4.068e-02
+## factor(cyl)8 -2.16368    2.28425 -0.9472 3.523e-01
+## wt           -2.49683    0.88559 -2.8194 9.081e-03
+## hp           -0.03211    0.01369 -2.3450 2.693e-02
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Residual Plot</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The following graphics, called, &quot;Residual Plots&quot; are used to evaluate the &quot;quality of model&quot;, will be reviewed in the next release:</p>
+
+<p><img src="assets/fig/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
     <slide class="backdrop"></slide>
   </slides>
   <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Proposed Model'>
+        data-slide=1 title='Executive Summary'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Residual Plot'>
+        data-slide=2 title='User Guide'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='User Guide'>
+        data-slide=3 title='Data Description Table'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Executive Summary'>
+        data-slide=4 title='Data Sample'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Data Description Table'>
+        data-slide=5 title='Proposed Model'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Data Sample'>
+        data-slide=6 title='Residual Plot'>
          6
       </a>
     </li>
