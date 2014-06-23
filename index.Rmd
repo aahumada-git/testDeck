@@ -1,8 +1,8 @@
 ---
-title       : Test deck
-subtitle    : 
-author      : 
-job         : 
+title       : Motor Trend Cars
+subtitle    : MPG Linear Regretion
+author      : Alex Ahumada
+job         : Data Scientist
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
@@ -10,17 +10,92 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
 
-## Read-And-Delete
+## Proposed Model
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+```{r, echo=FALSE}
+library(tables)
+library(datasets)
+library(xtable)
+
+data(mtcars)
+
+# fit <- lm(formula = mpg ~ factor(am) + factor(cyl) + wt + hp, data = mtcars)
+# 
+# print( tabular( mpg + 1 ~ 1, data = mtcars  ) )
+
+df <- data.frame(A = c(1.00123, 33.1, 6),
+                 B = c(111111, 3333333, 3123.233))
+## The following code gives the error
+## formal argument "digits" matched by multiple actual arguments
+## print(xtable(df, display = c("s","e","e")),
+## format.args = list(digits = 3, big.mark = " ", decimal.mark = ","))
+## specify digits as argument to xtable instead
+
+print(xtable(df, display = c("s","f","f"), digits = 4),
+      format.args = list(big.mark = " ", decimal.mark = ","), type = "html" )
+
+```
 
 --- .class #id 
 
-## Slide 2
+## Residual Plot
 
-```{r, fig.height=5, fig.width=5}
-plot(1 : 10, 1 : 10)
+```{r, echo=FALSE}
+
+opar <- par(mfrow = c(2, 2))
+plot(fit)
+par( opar )
+
 ```
 
+--- .class #id 
+
+
+## User Guide
+
+You have to select a regresor  for MPG and application will show to you:
+
+- Scatterplot in case of variable it continuous
+- Boxplot in case of variable it discrete.
+
+Enjoy it!
+
+--- .class #id 
+
+## Executive Summary
+
+This application try to answer specific question regarding the cars's relationship between miles per galon (MPG) and other variables in dataset. For this we have the folowing database:
+
+```
+Motor Trend Car Road Tests: The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models)
+This aplication show scaterplot graphics and tendence line retulting of applying linear regression to a mtcars dataset 
+
+```
+
+--- .class #id 
+
+## Data Description Table
+
+The field in the data have the following meaning:
+
+  Variable | Description 
+  :-------:|:---------------
+  mpg      |Miles/(US) gallon        
+  cyl      |Number of cylinders      
+  disp     |Displacement (cu.in.)   
+  hp       |Gross horsepower         
+  drat     |Rear axle ratio          
+  wt       |Weight (lb/1000)         
+  qsec     |1/4 mile time            
+  vs       |V/S             
+  am       |Transmission (0 = automatic, 1 = manual)
+  gear     |Number of forward gears
+  carb     |Number of carburetors 
+
+--- .class #id 
+
+## Data Sample
+
+```{r}
+head(mtcars)
+```

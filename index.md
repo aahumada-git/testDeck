@@ -1,8 +1,8 @@
 ---
-title       : Test deck
-subtitle    : 
-author      : 
-job         : 
+title       : Motor Trend Cars
+subtitle    : MPG Linear Regretion
+author      : Alex Ahumada
+job         : Data Scientist
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
@@ -10,21 +10,110 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 ---
 
-## Read-And-Delete
+## Proposed Model
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+
+```
+## Loading required package: Hmisc
+## Loading required package: grid
+## Loading required package: lattice
+## Loading required package: survival
+## Loading required package: splines
+## Loading required package: Formula
+## 
+## Attaching package: 'Hmisc'
+## 
+## The following objects are masked from 'package:base':
+## 
+##     format.pval, round.POSIXt, trunc.POSIXt, units
+## 
+## 
+## Attaching package: 'xtable'
+## 
+## The following objects are masked from 'package:Hmisc':
+## 
+##     label, label<-
+```
+
+```
+## <!-- html table generated in R 3.1.0 by xtable 1.7-3 package -->
+## <!-- Mon Jun 23 11:14:42 2014 -->
+## <TABLE border=1>
+## <TR> <TH>  </TH> <TH> A </TH> <TH> B </TH>  </TR>
+##   <TR> <TD align="right"> 1 </TD> <TD align="right"> 1,0012 </TD> <TD align="right"> 111 111,0000 </TD> </TR>
+##   <TR> <TD align="right"> 2 </TD> <TD align="right"> 33,1000 </TD> <TD align="right"> 3 333 333,0000 </TD> </TR>
+##   <TR> <TD align="right"> 3 </TD> <TD align="right"> 6,0000 </TD> <TD align="right"> 3 123,2330 </TD> </TR>
+##    </TABLE>
+```
 
 --- .class #id 
 
-## Slide 2
+## Residual Plot
+
+
+```
+## Error: objeto 'fit' no encontrado
+```
+
+--- .class #id 
+
+
+## User Guide
+
+You have to select a regresor  for MPG and application will show to you:
+
+- Scatterplot in case of variable it continuous
+- Boxplot in case of variable it discrete.
+
+Enjoy it!
+
+--- .class #id 
+
+## Executive Summary
+
+This application try to answer specific question regarding the cars's relationship between miles per galon (MPG) and other variables in dataset. For this we have the folowing database:
+
+```
+Motor Trend Car Road Tests: The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models)
+This aplication show scaterplot graphics and tendence line retulting of applying linear regression to a mtcars dataset 
+
+```
+
+--- .class #id 
+
+## Data Description Table
+
+The field in the data have the following meaning:
+
+  Variable | Description 
+  :-------:|:---------------
+  mpg      |Miles/(US) gallon        
+  cyl      |Number of cylinders      
+  disp     |Displacement (cu.in.)   
+  hp       |Gross horsepower         
+  drat     |Rear axle ratio          
+  wt       |Weight (lb/1000)         
+  qsec     |1/4 mile time            
+  vs       |V/S             
+  am       |Transmission (0 = automatic, 1 = manual)
+  gear     |Number of forward gears
+  carb     |Number of carburetors 
+
+--- .class #id 
+
+## Data Sample
 
 
 ```r
-plot(1:10, 1:10)
+head(mtcars)
 ```
 
-![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1.png) 
-
-
+```
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+```
